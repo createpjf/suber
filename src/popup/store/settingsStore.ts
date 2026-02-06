@@ -26,7 +26,7 @@ export const useSettingsStore = create<SettingsState>()(
       },
     }),
     {
-      name: 'subtracker-settings',
+      name: 'suber-settings',
       storage: createJSONStorage(() => chromeStorage),
     }
   )

@@ -61,7 +61,7 @@ export const useSubscriptionStore = create<SubscriptionState>()(
       },
     }),
     {
-      name: 'subtracker-subscriptions',
+      name: 'suber-subscriptions',
       storage: createJSONStorage(() => chromeStorage),
     }
   )
