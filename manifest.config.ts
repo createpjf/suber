@@ -9,7 +9,6 @@ export default defineManifest((env) => ({
   description: 'Track and manage all your subscriptions in one place',
   version,
   action: {
-    default_popup: 'src/popup/index.html',
     default_icon: {
       '16': 'public/icons/icon-16.png',
       '48': 'public/icons/icon-48.png',
