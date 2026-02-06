@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/createpjf/subreminder/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/createpjf/suber/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://github.com/createpjf"><img src="https://img.shields.io/badge/GitHub-createpjf-181717?logo=github" alt="GitHub: createpjf"></a>
   <a href="https://twitter.com/createpjf"><img src="https://img.shields.io/badge/Twitter-@createpjf-1DA1F2?logo=twitter&logoColor=white" alt="Twitter: @createpjf"></a>
   <img src="https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white" alt="Chrome Extension">
@@ -44,7 +44,7 @@
 | Build | Vite 5 + CRXJS Vite Plugin |
 | Test | Vitest + Testing Library |
 | Font | Space Grotesk |
-| Platform | Chrome Extension Manifest V3 (Side Panel) |
+| Platform | Chrome Extension Manifest V3 (Popup) |
 
 ## Project Structure
 
