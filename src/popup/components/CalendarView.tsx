@@ -38,7 +38,7 @@ export default function CalendarView({ onEdit }: CalendarViewProps) {
       <div className="flex items-end justify-between px-4 pt-3 pb-2 shrink-0">
         <div className="flex items-center gap-2">
           <button onClick={goToToday} className="cursor-pointer">
-            <h2 className="text-xl font-bold text-text-primary leading-tight">
+            <h2 className="text-[22px] font-bold text-text-primary leading-tight">
               {format(currentMonth, 'MMMM yyyy')}
             </h2>
           </button>
@@ -65,7 +65,7 @@ export default function CalendarView({ onEdit }: CalendarViewProps) {
         </div>
         <div className="text-right">
           <p className="text-[10px] text-text-secondary uppercase tracking-wider">Monthly spend</p>
-          <p className="text-sm font-semibold text-text-primary">
+          <p className="text-base font-bold text-text-primary">
             {formatCurrencyShort(monthlySpend, currency)}
           </p>
         </div>

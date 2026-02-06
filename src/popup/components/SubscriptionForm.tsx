@@ -91,11 +91,11 @@ export default function SubscriptionForm({ mode, subscription, onClose }: Subscr
   }
 
   const inputClass =
-    'w-full px-3 py-2 text-sm bg-bg-secondary border border-border-color rounded-lg text-text-primary focus:outline-none focus:ring-1 focus:ring-text-secondary'
-  const labelClass = 'block text-xs font-medium text-text-secondary mb-1'
+    'w-full px-3.5 py-2.5 text-sm bg-bg-cell rounded-[10px] text-text-primary placeholder:text-text-dim focus:outline-none'
+  const labelClass = 'block text-[13px] font-medium text-text-primary mb-1.5'
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-4">
       {/* Name */}
       <div>
         <label className={labelClass}>Name *</label>
@@ -135,28 +135,49 @@ export default function SubscriptionForm({ mode, subscription, onClose }: Subscr
       <div className="flex gap-2">
         <div className="flex-1">
           <label className={labelClass}>Amount *</label>
-          <input
-            type="number"
-            value={form.amount || ''}
-            onChange={(e) => handleChange('amount', parseFloat(e.target.value) || 0)}
-            placeholder="9.99"
-            step="0.01"
-            min="0"
-            className={inputClass}
-            required
-          />
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => handleChange('amount', Math.max(0, form.amount - 1))}
+              className="w-7 h-7 flex items-center justify-center rounded-lg text-[#38b2ac] bg-[#38b2ac]/10 hover:bg-[#38b2ac]/20 transition-colors cursor-pointer text-lg font-medium"
+            >
+              −
+            </button>
+            <input
+              type="number"
+              value={form.amount || ''}
+              onChange={(e) => handleChange('amount', parseFloat(e.target.value) || 0)}
+              placeholder="9.99"
+              step="0.01"
+              min="0"
+              className={`${inputClass} flex-1 text-center`}
+              required
+            />
+            <button
+              type="button"
+              onClick={() => handleChange('amount', form.amount + 1)}
+              className="w-7 h-7 flex items-center justify-center rounded-lg text-[#38b2ac] bg-[#38b2ac]/10 hover:bg-[#38b2ac]/20 transition-colors cursor-pointer text-lg font-medium"
+            >
+              +
+            </button>
+          </div>
         </div>
         <div className="w-24">
           <label className={labelClass}>Currency</label>
-          <select
-            value={form.currency}
-            onChange={(e) => handleChange('currency', e.target.value)}
-            className={inputClass}
-          >
-            {CURRENCIES.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={form.currency}
+              onChange={(e) => handleChange('currency', e.target.value)}
+              className={`${inputClass} appearance-none pr-8`}
+            >
+              {CURRENCIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+            <svg className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 3.5L5 6.5L8 3.5" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -164,15 +185,20 @@ export default function SubscriptionForm({ mode, subscription, onClose }: Subscr
       <div className="flex gap-2">
         <div className="flex-1">
           <label className={labelClass}>Billing Cycle</label>
-          <select
-            value={form.cycle}
-            onChange={(e) => handleChange('cycle', e.target.value as BillingCycle)}
-            className={inputClass}
-          >
-            {BILLING_CYCLES.map((c) => (
-              <option key={c.value} value={c.value}>{c.label}</option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={form.cycle}
+              onChange={(e) => handleChange('cycle', e.target.value as BillingCycle)}
+              className={`${inputClass} appearance-none pr-8`}
+            >
+              {BILLING_CYCLES.map((c) => (
+                <option key={c.value} value={c.value}>{c.label}</option>
+              ))}
+            </select>
+            <svg className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 3.5L5 6.5L8 3.5" />
+            </svg>
+          </div>
         </div>
         {form.cycle !== 'weekly' && form.cycle !== 'one-time' && (
           <div className="w-24">
@@ -204,28 +230,38 @@ export default function SubscriptionForm({ mode, subscription, onClose }: Subscr
       <div className="flex gap-2">
         <div className="flex-1">
           <label className={labelClass}>Category</label>
-          <select
-            value={form.category}
-            onChange={(e) => handleChange('category', e.target.value)}
-            className={inputClass}
-          >
-            {CATEGORIES.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={form.category}
+              onChange={(e) => handleChange('category', e.target.value)}
+              className={`${inputClass} appearance-none pr-8`}
+            >
+              {CATEGORIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+            <svg className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 3.5L5 6.5L8 3.5" />
+            </svg>
+          </div>
         </div>
         <div className="flex-1">
           <label className={labelClass}>Status</label>
-          <select
-            value={form.status}
-            onChange={(e) => handleChange('status', e.target.value as SubscriptionStatus)}
-            className={inputClass}
-          >
-            <option value="active">Active</option>
-            <option value="paused">Paused</option>
-            <option value="trial">Trial</option>
-            <option value="cancelled">Cancelled</option>
-          </select>
+          <div className="relative">
+            <select
+              value={form.status}
+              onChange={(e) => handleChange('status', e.target.value as SubscriptionStatus)}
+              className={`${inputClass} appearance-none pr-8`}
+            >
+              <option value="active">Active</option>
+              <option value="paused">Paused</option>
+              <option value="trial">Trial</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+            <svg className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 3.5L5 6.5L8 3.5" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -260,7 +296,7 @@ export default function SubscriptionForm({ mode, subscription, onClose }: Subscr
           <button
             type="button"
             onClick={handleDelete}
-            className="px-4 py-2 text-sm rounded-lg bg-danger/10 text-danger hover:bg-danger/20 transition-colors cursor-pointer"
+            className="px-5 py-2.5 text-sm rounded-lg bg-danger/10 text-danger hover:bg-danger/20 transition-colors cursor-pointer"
           >
             Delete
           </button>
@@ -269,13 +305,13 @@ export default function SubscriptionForm({ mode, subscription, onClose }: Subscr
         <button
           type="button"
           onClick={onClose}
-          className="px-4 py-2 text-sm rounded-lg bg-bg-secondary text-text-secondary hover:bg-border-color transition-colors cursor-pointer"
+          className="px-5 py-2.5 text-sm rounded-lg bg-bg-cell text-text-secondary hover:bg-border-color transition-colors cursor-pointer"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="px-4 py-2 text-sm rounded-lg bg-text-primary text-bg-primary font-medium hover:opacity-90 transition-opacity cursor-pointer"
+          className="px-5 py-2.5 text-sm rounded-lg bg-accent text-bg-primary font-medium hover:opacity-90 transition-opacity cursor-pointer"
         >
           {mode === 'edit' ? 'Save' : 'Add'}
         </button>

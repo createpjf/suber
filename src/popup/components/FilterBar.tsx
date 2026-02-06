@@ -23,7 +23,7 @@ export default function FilterBar({ value, onChange }: FilterBarProps) {
           key={f.value}
           onClick={() => onChange(f.value)}
           className={`
-            px-2.5 py-1 text-xs rounded-full whitespace-nowrap transition-colors cursor-pointer
+            px-2 py-1 text-[10px] font-medium rounded-full whitespace-nowrap transition-colors cursor-pointer
             ${
               value === f.value
                 ? 'bg-text-primary text-bg-primary'

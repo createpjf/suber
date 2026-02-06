@@ -18,7 +18,7 @@ export default function DayDetailPanel({ date, subscriptions, onClose, onEdit }:
         </h3>
         <button
           onClick={onClose}
-          className="text-text-secondary hover:text-text-primary text-lg leading-none cursor-pointer"
+          className="w-7 h-7 flex items-center justify-center rounded-full text-text-secondary hover:text-text-primary hover:bg-bg-secondary text-lg leading-none cursor-pointer transition-colors"
         >
           &times;
         </button>
@@ -51,9 +51,9 @@ export default function DayDetailPanel({ date, subscriptions, onClose, onEdit }:
                 <p className="text-xs text-text-secondary">{sub.category}</p>
               </div>
               <div className="text-right shrink-0">
-                <p className="text-sm font-semibold text-text-primary">
+                <p className="text-sm font-medium text-text-primary">
                   {formatCurrency(sub.amount, sub.currency)}
-                  <span className="text-xs font-normal text-text-secondary">
+                  <span className="text-[10px] font-normal text-text-secondary ml-0.5">
                     {getCycleLabel(sub.cycle)}
                   </span>
                 </p>

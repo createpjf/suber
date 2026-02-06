@@ -31,6 +31,7 @@ export default function App() {
         onSettings={() => setView(view === 'settings' ? 'calendar' : 'settings')}
         view={view}
       />
+      <div className="border-t border-border-color" />
       <main className="flex-1 overflow-y-auto no-scrollbar">
         {view === 'calendar' && <CalendarView onEdit={handleEdit} />}
         {view === 'list' && <ListView onEdit={handleEdit} />}

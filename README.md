@@ -1,29 +1,40 @@
-# SubReminder
+<p align="center">
+  <img src="public/icons/icon-128.png" width="80" alt="Suber Icon">
+</p>
 
-A minimalist Chrome extension for tracking and managing your subscriptions. Built with React, TypeScript, and Tailwind CSS.
+<h1 align="center">Suber</h1>
 
-一款极简风格的 Chrome 浏览器扩展，用于追踪和管理你的订阅服务。基于 React、TypeScript 和 Tailwind CSS 构建。
+<p align="center">
+  A Chrome extension for tracking and managing your subscriptions.<br>
+  Built with React, TypeScript, and Tailwind CSS.
+</p>
 
----
+<p align="center">
+  <a href="https://github.com/createpjf/subreminder/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/createpjf"><img src="https://img.shields.io/badge/GitHub-createpjf-181717?logo=github" alt="GitHub: createpjf"></a>
+  <a href="https://twitter.com/createpjf"><img src="https://img.shields.io/badge/Twitter-@createpjf-1DA1F2?logo=twitter&logoColor=white" alt="Twitter: @createpjf"></a>
+  <img src="https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white" alt="Chrome Extension">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React 18">
+</p>
 
-## Features / 功能
+<p align="center">
+  Companion to the <a href="https://github.com/createpjf/suber-macos">Suber macOS App</a>
+</p>
 
-- **Calendar View / 日历视图** — See all upcoming billing dates at a glance, with subscription icons on each day
-- **List View / 列表视图** — Search, filter by status, and sort your subscriptions
-- **Subscription Management / 订阅管理** — Add, edit, and delete subscriptions with billing cycle, category, and status tracking
-- **Monthly Spend / 月度开支** — Automatic calculation of your total monthly subscription cost
-- **Website Favicons / 网站图标** — Automatically fetches icons from subscription websites
-- **Data Portability / 数据导入导出** — Export and import your data as JSON
-- **Local Storage / 本地存储** — All data stored locally via `chrome.storage.local`, no account required
-- **Notifications / 提醒通知** — Configurable billing reminders (1, 2, 3, 5, 7 days before)
+## Features
 
-## Screenshots / 截图
+- **Calendar View** — Visual monthly calendar with billing date indicators and subscription logos
+- **List View** — Searchable, filterable, sortable subscription list
+- **Subscription Management** — Add, edit, delete subscriptions with billing cycle, category, and status tracking
+- **Monthly Spend** — Automatic calculation of total monthly subscription cost
+- **Light / Dark Mode** — Follows system appearance automatically
+- **Custom Typography** — Space Grotesk font throughout the UI
+- **Website Favicons** — Automatically fetches icons from subscription websites
+- **Data Export / Import** — JSON backup and restore
+- **Local Storage** — All data stored locally via `chrome.storage.local`, no account required
+- **Notifications** — Configurable billing reminders (1, 2, 3, 5, 7 days before)
 
-> Load the extension in Chrome and click the toolbar icon to open the popup.
->
-> 在 Chrome 中加载扩展，点击工具栏图标打开弹窗。
-
-## Tech Stack / 技术栈
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -32,9 +43,10 @@ A minimalist Chrome extension for tracking and managing your subscriptions. Buil
 | Dates | date-fns |
 | Build | Vite 5 + CRXJS Vite Plugin |
 | Test | Vitest + Testing Library |
-| Platform | Chrome Extension Manifest V3 |
+| Font | Space Grotesk |
+| Platform | Chrome Extension Manifest V3 (Side Panel) |
 
-## Project Structure / 项目结构
+## Project Structure
 
 ```
 src/
@@ -46,63 +58,64 @@ src/
 │   ├── store/           # Zustand stores (subscriptions, settings)
 │   ├── App.tsx          # Root component
 │   ├── main.tsx         # Entry point
-│   └── index.css        # Tailwind + CSS custom properties
+│   └── index.css        # Space Grotesk fonts + CSS custom properties
 ├── shared/
 │   ├── types/           # TypeScript interfaces
-│   ├── constants.ts     # App constants
+│   ├── constants.ts     # App constants (currencies, categories, status colors)
 │   ├── storage.ts       # chrome.storage adapter
-│   └── utils.ts         # Date calculations, formatting
+│   └── utils.ts         # Date calculations, currency formatting
 └── test/                # Test setup
+public/
+├── fonts/               # Space Grotesk TTF files
+└── icons/               # Extension icons (16, 48, 128px)
 ```
 
-## Getting Started / 快速开始
+## Getting Started
 
-### Prerequisites / 前置要求
+### Prerequisites
 
 - Node.js >= 18
 - npm
 
-### Install & Build / 安装与构建
+### Install & Build
 
 ```bash
-# Install dependencies / 安装依赖
+# Install dependencies
 npm install
 
-# Build for production / 生产构建
+# Build for production
 npm run build
 
-# Run tests / 运行测试
+# Run tests
 npm run test:run
 ```
 
-### Load in Chrome / 在 Chrome 中加载
+### Load in Chrome
 
 1. Open `chrome://extensions/`
-2. Enable **Developer mode** (top-right toggle) / 打开右上角 **开发者模式**
-3. Click **Load unpacked** / 点击 **加载已解压的扩展程序**
-4. Select the `dist/` folder / 选择 `dist/` 文件夹
-5. Click the SubReminder icon in the toolbar / 点击工具栏中的 SubReminder 图标
+2. Enable **Developer mode** (top-right toggle)
+3. Click **Load unpacked**
+4. Select the `dist/` folder
+5. Click the Suber icon in the toolbar
 
-### Development / 开发模式
+### Development
 
 ```bash
 npm run dev
 ```
 
-This starts the Vite dev server with HMR. Load the extension from Chrome the same way — CRXJS handles live reload automatically.
+Starts the Vite dev server with HMR. Load the extension from Chrome — CRXJS handles live reload automatically.
 
-启动 Vite 开发服务器（支持热更新）。同样从 Chrome 加载扩展，CRXJS 会自动处理实时刷新。
+## Import from macOS App
 
-## Supported Billing Cycles / 支持的计费周期
+1. In the Suber macOS app, go to Settings → Export JSON
+2. In the Chrome extension, go to Settings → Import JSON
+3. Select the exported file — subscriptions and settings will be imported
 
-| Cycle | Label |
-|-------|-------|
-| Weekly | /wk |
-| Monthly | /mo |
-| Quarterly | /qtr |
-| Yearly | /yr |
-| One-time | — |
+## Author
 
-## License / 许可证
+**createpjf** — [@createpjf](https://twitter.com/createpjf)
 
-MIT
+## License
+
+[MIT](LICENSE) © createpjf

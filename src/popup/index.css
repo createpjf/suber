@@ -2,19 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Space Grotesk Font Family */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light mode (default) — matches Mac app light mode */
 :root {
-  --color-bg-primary: #1a1a1a;
-  --color-bg-secondary: #2a2a2a;
-  --color-bg-cell: #2a2a2a;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #888888;
-  --color-text-dim: #555555;
-  --color-accent: #ffffff;
+  --color-bg-primary: #f9f9fa;
+  --color-bg-secondary: #ffffff;
+  --color-bg-cell: #eaebee;
+  --color-text-primary: #17171c;
+  --color-text-secondary: #666670;
+  --color-text-dim: #9999a0;
+  --color-accent: #26262e;
   --color-danger: #ff5555;
   --color-success: #4ade80;
   --color-warning: #fbbf24;
-  --color-border: #333333;
-  --color-card-bg: #2a2a2a;
+  --color-border: #e0e0e6;
+  --color-card-bg: #ffffff;
+}
+
+/* Dark mode — matches Mac app dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #2a2a2a;
+    --color-bg-cell: #2a2a2a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #888888;
+    --color-text-dim: #555555;
+    --color-accent: #ffffff;
+    --color-border: #333333;
+    --color-card-bg: #2a2a2a;
+  }
 }
 
 * {
@@ -24,26 +73,18 @@
 html, body {
   margin: 0;
   padding: 0;
-  width: 520px;
-  height: 440px;
+  width: 480px;
+  height: 520px;
   overflow: hidden;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
   width: 100%;
   height: 100%;
-}
-
-/* Side panel mode: fill the entire viewport */
-@media (min-height: 500px) {
-  html, body {
-    width: 100%;
-    height: 100vh;
-  }
 }
 
 @keyframes slide-up {
@@ -57,4 +98,11 @@ html, body {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Custom select styling to remove system shadows */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

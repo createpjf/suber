@@ -49,7 +49,7 @@ export default function CalendarDayCell({
     <button
       onClick={hasSubs ? onClick : undefined}
       className={`
-        flex flex-col items-center gap-0.5 py-1 px-0.5 rounded-lg min-h-[42px] transition-colors
+        flex flex-col items-center gap-0.5 py-1 px-0.5 rounded-lg min-h-[48px] transition-colors
         ${!isCurrentMonth ? 'opacity-20' : 'bg-bg-cell'}
         ${isToday ? 'ring-1 ring-text-primary/40' : ''}
         ${hasSubs ? 'cursor-pointer hover:ring-1 hover:ring-text-secondary/30' : 'cursor-default'}

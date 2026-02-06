@@ -2,9 +2,11 @@ import type { Config } from 'tailwindcss'
 
 export default {
   content: ['./src/**/*.{ts,tsx,html}'],
-  darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["'Space Grotesk'", '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
       colors: {
         'bg-primary': 'var(--color-bg-primary)',
         'bg-secondary': 'var(--color-bg-secondary)',
@@ -20,10 +22,10 @@ export default {
         'border-color': 'var(--color-border)',
       },
       width: {
-        popup: '400px',
+        popup: '480px',
       },
       maxHeight: {
-        popup: '600px',
+        popup: '520px',
       },
     },
   },

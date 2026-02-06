@@ -19,7 +19,7 @@ export default function SettingsPage() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `subreminder-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.download = `suber-backup-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -70,7 +70,7 @@ export default function SettingsPage() {
   }
 
   const sectionClass = 'space-y-3'
-  const sectionTitle = 'text-xs font-semibold text-text-secondary uppercase tracking-wide mb-2'
+  const sectionTitle = 'text-[10px] font-bold text-text-secondary uppercase tracking-[1px] mb-2'
   const divider = 'border-t border-border-color my-4'
 
   return (
@@ -104,11 +104,11 @@ export default function SettingsPage() {
                 key={day}
                 onClick={() => toggleReminderDay(day)}
                 className={`
-                  px-2.5 py-1 text-xs rounded-full transition-colors cursor-pointer
+                  px-2.5 py-1 text-[10px] font-medium rounded-full transition-colors cursor-pointer
                   ${
                     settings.reminderDaysBefore.includes(day)
                       ? 'bg-text-primary text-bg-primary'
-                      : 'bg-bg-secondary text-text-secondary hover:bg-border-color'
+                      : 'bg-bg-cell text-text-secondary hover:bg-border-color'
                   }
                 `}
               >
@@ -127,13 +127,13 @@ export default function SettingsPage() {
         <div className="flex gap-2">
           <button
             onClick={handleExport}
-            className="flex-1 px-3 py-2 text-xs rounded-lg bg-bg-secondary text-text-primary hover:bg-border-color transition-colors cursor-pointer"
+            className="flex-1 px-3 py-2 text-xs rounded-lg bg-bg-cell text-text-primary hover:bg-border-color transition-colors cursor-pointer"
           >
             Export JSON
           </button>
           <button
             onClick={handleImport}
-            className="flex-1 px-3 py-2 text-xs rounded-lg bg-bg-secondary text-text-primary hover:bg-border-color transition-colors cursor-pointer"
+            className="flex-1 px-3 py-2 text-xs rounded-lg bg-bg-cell text-text-primary hover:bg-border-color transition-colors cursor-pointer"
           >
             Import JSON
           </button>
@@ -158,7 +158,7 @@ export default function SettingsPage() {
       {/* About */}
       <div className={sectionClass}>
         <h3 className={sectionTitle}>About</h3>
-        <p className="text-xs text-text-secondary">SubReminder v0.1.0</p>
+        <p className="text-xs text-text-secondary">Suber v1.0.0</p>
       </div>
     </div>
   )
